@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block style %}
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+  </style>
+    {% endblock %}
+  <!-- Swiper -->
+{% block header %} {% include "nav.html" %} {% endblock %}
+{% block content %}
+
+    <div class="row">
+  <div class="swiper-container col-md-12" style="height: 400px;">
+    <div class="swiper-wrapper">
+        {% for Image in Images %}
+      <div class="swiper-slide"><img src="/media/{{ Image.Img }}" width="85%" height="90%"> </div>
+        {% endfor %}
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+    </div>
+    <nav class="border margin_0 navbar navbar-expand-md text-center">
+     <ul class="navbar-nav nav-bg-color" style="width: 100%;">
+     <li class="nav-item col-md-2 border"><a href="#"> 首页</a></li>
+     <li class="nav-item col-md-2 border"><a href="#"> 党务工作</a></li>
+     <li class="nav-item col-md-2 border"><a href="#"> 党课中心</a></li>
+     <li class="nav-item col-md-2 border"><a href="#"> 党校书院</a></li>
+     <li class="nav-item col-md-2 border"><a href="#"> 精品推荐</a></li>
+     <li class="nav-item col-md-2 border"><a href="#"> 关于我们</a></li>
+     </ul>
+    </nav>
+    <div class="row" style="margin:10px 0;">
+    <div class="col-md-3 border text-center LoginForm">
+        <h4> 登录 </h4>
+       <hr>
+        <div style="height: 70%; width:100%; ">
+        <form action="{% url 'account:login' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3" style="margin:10% 4% 4%;" >
+                <div class="input-group-prepend ">
+                    <span class="input-group-text fa fa-male">
+                    </span>
+                </div>
+            <input type="text" placeholder="输入用户名" id="id_username" name="username">
+            </div>
+           <div class="input-group mb-3" style="margin:6% 4%">
+                <div class="input-group-prepend">
+                    <span class="input-group-text fa fa-stack-exchange">
+                    </span>
+                </div>
+            <input type="password" placeholder="输入密码" id="id_password" name="password">
+            </div>
+            <input type="submit"  class="btn btn-primary" style="width:100%;margin:6% auto;">
+        </form>
+             <p><a href="{% url 'account:password_reset' %}">忘记密码</a> </p>
+    </div>
+        </div>
+    <div class="col-md-6 border Center">
+      <h4> 学生党务管理委员会</h4>
+        <hr>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" style="margin:0;padding:0;">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">指导老师</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">策划部</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu2">秘书部</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu3">宣传部</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu4">培训部</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu5">资料部</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="container tab-pane fade"><br>
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+       <div id="menu3" class="container tab-pane fade"><br>
+      <h3>Menu 3</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+       <div id="menu4" class="container tab-pane fade"><br>
+      <h3>Menu 4</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+       <div id="menu5" class="container tab-pane fade"><br>
+      <h3>Menu 5</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+    </div>
+    <div class="col-md-3 border Right">
+        <h4> 网站介绍 </h4>
+        <hr>
+    </div>
+    </div>
+    <div class="row border" style="margin:0;">
+    <div class="col-md-4 border Area">
+      <h4> 党务工作 </h4>
+        <hr>
+
+    </div>
+     <div class="col-md-8 border Area">
+      <h4> 最近更新 </h4>
+        <hr>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" style="margin:0;padding:0;">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#News">时事</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Video">党课视频</a>
+    </li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="News" class="container tab-pane active"><br>
+      <h3>时事</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="Video" class="container tab-pane fade"><br>
+      <h3>党课视频</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+      </div>
+    </div>
+{% endblock %}
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}

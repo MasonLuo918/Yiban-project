@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+{% block title %} 个人信息 {% endblock %}
+{% block header %} {% include "nav.html" %} {% endblock %}
+{% block content %}
+    <form class="container" action="." method="post" >
+    {% csrf_token %}
+    <h1 class="MyselfFont text-center">
+        Personal Information
+    </h1>
+        <div class="MyselfMargin">
+    <div class="row">
+        <div class="col-md-2 offset-4 border">用户名: </div>
+        <div class="col-md-2 ">{{ user.username }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border ">邮箱: </div>
+        <div class="col-md-2 ">{{ user_form.email }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border" style="padding:0;">真实姓名: </div>
+        <div class="col-md-2 ">{{ userprofile_form.RealName }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border" style="padding:0;">学校: </div>
+        <div class="col-md-2">{{ userprofile_form.School }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border" style="padding:0;">学号: </div>
+        <div class="col-md-2 ">{{ userprofile_form.SchoolNumber }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border" style="padding:0;">班级: </div>
+        <div class="col-md-2 ">{{ userprofile_form.Class }}</div>
+    </div>
+     <div class="row">
+        <div class="col-md-2 offset-4 border" style="padding:0;">手机号码: </div>
+        <div class="col-md-2">{{ userprofile_form.phone }}</div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-outline-dark" style="text-decoration: none; margin:20px;">Submit</button>
+            </div>
+    </form>
+ </div>
+{% endblock %}

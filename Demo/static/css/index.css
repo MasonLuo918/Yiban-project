@@ -1,0 +1,71 @@
+
+.margin_0
+{
+    margin:0;
+    padding:0;
+}
+.nav_area
+{
+    width:100%;
+    height:100px;
+}
+.nav-bg-color
+{
+    color:white;
+    font-family: 华文新魏;
+    font-size:1.1rem;
+    background-color:#ef3f52;
+}
+.nav-bg-color a
+{
+    color:white;
+    text-decoration: none;
+}
+.nav-bg-color li:hover a
+{
+    color:black;
+}
+.LoginForm h4
+{   font-family: 华文新魏;
+    border:2px solid #5D5D5D;
+    border-radius: 10px;
+    margin:4% auto 4%;
+    padding:0;
+}
+.FormGroup
+{
+    height:25%;
+
+}
+.Center h4
+{
+    font-family: 华文新魏;
+    border:2px solid #5D5D5D;
+    border-radius: 10px;
+    margin:2% auto 2%;
+    padding:0;
+}
+.Right h4
+{
+   font-family: 华文新魏;
+    border:2px solid #5D5D5D;
+    border-radius: 10px;
+    margin:4% auto 4%;
+    padding:0;
+}
+
+.Area h4
+{
+     font-family: 华文新魏;
+    border:2px solid #5D5D5D;
+    border-radius: 10px;
+    margin:20px auto 20px;
+    padding:0;
+}
+footer p
+{
+    margin:0;
+    padding:0;
+    font-size:0.6rem;
+    color:#888888;
+}

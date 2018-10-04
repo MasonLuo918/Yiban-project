@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex flex-row bg-secondary" style="padding:0;">
+    <div class="nav-left p-2" style="width:20%;">
+    <a class="navbar-brand" href="#">
+        <img class="img-fluid rounded-circle" src="{% static 'Image/ScauLogo.jpg' %}" alt="logo" style="width: 80px; height: 50px;">
+         <img class="img-fluid rounded-circle" src="{% static 'Image/DangLogo.png' %}" alt="logo" style="width: 75px; height: 50px;">
+    </a>
+       </div>
+    <div class="nav-right" style="width:75%;">
+    <ul class="navbar-nav p-2 d-flex flex-row-reverse">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown p-2">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{{ user.username}}</button>
+            <div class="dropdown-menu">
+
+                    <a class="dropdown-item" href="{% url 'account:password-change' %}">修改密码</a>
+                    <a class="dropdown-item" href="{%  url 'account:logout' %}">退出登陆</a>
+                    <a class="dropdown-item" href="{% url 'account:myself' %}">个人信息</a>
+            </div>
+        </li>
+        {% else %}
+        <li class="nav-item p-2">
+           <button type="button" class="btn btn-primary"><a href="{% url 'account:login' %}" style="color:white;">Login </a></button>
+        </li>
+        <li class="nav-item p-2">
+            <button type="button" class="btn btn-primary"><a href="{% url 'account:register' %}" style="color:white;">register</a></button>
+        </li>
+        {% endif %}
+    </ul>
+        </div>
+</nav>

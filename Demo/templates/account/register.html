@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="../../static/css/myselfcss.css">
+   <!-- 新 Bootstrap4 核心 CSS 文件 -->
+<!-- 新 Bootstrap4 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+
+<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<!-- 图标文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+
+    <style>
+        body{
+            background-image:url(../../static/Image/RegisterBackground.gif);
+            /*background-repeat:no-repeat;*/
+            /*background-size:100% 100%;*/
+            height:100%;
+            width: 100%;
+            color:white;
+            font-family: 华文新魏;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container text-center " style="height:100%; margin-top:2%;">
+    <h1 class="display-3">Register</h1>
+     <p>If you have a account,please<strong><a href="{% url 'account:login' %}">Log in</a></strong>,</p>
+     <p>or <mark>register</mark></p>
+    <div class="container text-left" style="width:50%;">
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label class="col-md-3 offset-md-3" ><span class="fa fa-group"></span>Username </label>
+           <div class=" col-md-3"> {{ user_form.username}}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-3 offset-md-3" ><span class="fa fa-group"></span>Password </label>
+             <div class="col-md-3"> {{ user_form.password }}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-4 offset-md-2"><span class="fa fa-group" ></span>Confirm Password </label>
+              <div class="col-md-3"> {{ user_form.password2 }}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-2 offset-md-3" ><span class="fa fa-group" ></span>Email </label>
+             <div class="col-md-3 offset-md-1"> {{ user_form.email }}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-3 offset-md-3 "><span class="fa fa-group" ></span>School</label>
+              <div class="col-md-3 "> {{ userprofile_form.School }}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-2 offset-md-3" ><span class="fa fa-group"></span>Class</label>
+               <div class="col-md-3 offset-md-1 "> {{ userprofile_form.Class }}</div>
+        </div>
+         <div class="form-group row">
+            <label class="col-md-4 offset-md-2" ><span class="fa fa-group"  ></span>School Number </label>
+           <div class=" col-md-3"> {{ userprofile_form.SchoolNumber }}</div>
+        </div>
+         <div class=" row">
+            <label class="col-md-2 offset-md-3" ><span class="fa fa-group"></span>phone </label>
+            <div class="col-md-3 offset-md-1"> {{ userprofile_form.phone }}</div>
+        </div>
+        <div class="row">
+        <button type="submit" class="col-md-2 offset-md-5 btn btn-info registerbutton" style="margin-top:10px;">REGITSER</button>
+            </div>
+    </form>
+        </div>
+</div>
+</body>
+</html>

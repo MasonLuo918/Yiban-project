@@ -25,7 +25,7 @@ SECRET_KEY = '0p_n@)a6%ux0)7rdref5%s8!(9*6x9!^etg%htmi_$715x+*yq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','.masonluo.online']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','120.77.152.163']
 
 
 # Application definition
